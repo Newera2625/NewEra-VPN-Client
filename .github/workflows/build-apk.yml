@@ -1,0 +1,44 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [master]
+    paths: ['android/**']
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Build APK
+        run: |
+          cd android
+          curl -sL -o /tmp/gradle.zip https://services.gradle.org/distributions/gradle-8.9-bin.zip
+          unzip -q /tmp/gradle.zip -d /opt
+          /opt/gradle-8.9/bin/gradle assembleRelease --no-daemon
+
+      - name: Upload APK to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.1
+          name: 新启年VPN客户端 1.0.1
+          body: |
+            新启年VPN客户端 v1.0.1
+
+            - 新增安卓 APK（新启年VPN.apk）
+            - 支持 SSO 登录、节点列表、一键复制代理配置
+          files: |
+            android/app/build/outputs/apk/release/*.apk
+          fail_on_unmatched_files: true
