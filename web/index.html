@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新启年VPN客户端</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5.5 3.5 9.5 8 11 4.5-1.5 8-5.5 8-11V5l-8-3z"/><path d="m9 12 2 2 4-4"/></svg>
+      <span>新启年VPN</span>
+      <span class="ver" id="ver"></span>
+    </div>
+    <div class="user-box" id="user-box">
+      <span class="avatar" id="avatar"></span>
+      <span class="uname" id="uname">未登录</span>
+      <button class="btn btn-ghost" id="login-btn" style="display:none">登录</button>
+      <button class="btn btn-ghost" id="logout-btn" style="display:none">退出</button>
+    </div>
+  </div>
+</header>
+
+<main class="layout">
+
+  <!-- 节点 -->
+  <section class="panel" id="panel-nodes">
+    <div class="panel-head">
+      <h2>节点状态</h2>
+      <div class="head-right">
+        <span class="conn-badge" id="conn-badge">未连接</span>
+        <button class="btn btn-outline" id="refresh-nodes">刷新</button>
+      </div>
+    </div>
+    <p class="sub">节点每5分钟自动检测连通性，延迟低于500ms入池；连接后自动设置系统代理</p>
+    <div class="node-list" id="node-list">
+      <div class="empty">加载中...</div>
+    </div>
+  </section>
+
+  <!-- 设置 -->
+  <section class="panel" id="panel-settings" style="display:none">
+    <div class="panel-head">
+      <h2>设置</h2>
+    </div>
+    <div class="card">
+      <h3>当前连接</h3>
+      <div id="conn-detail" class="conn-detail">未连接</div>
+      <button class="btn btn-danger" id="disconnect-btn" style="display:none">断开连接</button>
+    </div>
+    <div class="card">
+      <h3>关于</h3>
+      <p class="sub">新启年VPN客户端 v<span id="about-ver"></span><br>支持 Windows / Linux / 安卓(Termux)</p>
+      <div class="update-row">
+        <span id="update-state">检查更新中...</span>
+        <button class="btn btn-outline" id="update-btn">检查更新</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footbar">
+  <button class="foot-btn active" id="tab-nodes">节点</button>
+  <button class="foot-btn" id="tab-settings">设置</button>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>

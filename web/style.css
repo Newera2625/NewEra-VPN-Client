@@ -1,0 +1,63 @@
+:root {
+  --bg: #f4f6fa;
+  --card: #ffffff;
+  --primary: #18a058;
+  --primary-soft: #eafaf1;
+  --text: #1f2d3d;
+  --text-2: #5b6b7c;
+  --text-3: #9aa7b5;
+  --border: #e3e8ef;
+  --err: #d03050;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; background: var(--bg); color: var(--text); height: 100vh; display: flex; flex-direction: column; }
+button { font-family: inherit; cursor: pointer; }
+
+.topbar { background: var(--primary); color: #fff; padding: 14px 20px; }
+.topbar-inner { max-width: 720px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 16px; }
+.brand-icon { width: 22px; height: 22px; }
+.ver { font-size: 11px; opacity: 0.75; font-weight: 400; margin-left: 4px; }
+.user-box { display: flex; align-items: center; gap: 10px; }
+.avatar { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.25); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; overflow: hidden; }
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+.uname { font-size: 14px; font-weight: 600; }
+.btn { border: none; border-radius: 8px; padding: 8px 16px; font-size: 13px; font-weight: 600; }
+.btn-ghost { background: rgba(255,255,255,0.18); color: #fff; }
+.btn-ghost:hover { background: rgba(255,255,255,0.3); }
+.btn-outline { background: #fff; color: var(--primary); border: 1px solid var(--primary); }
+.btn-outline:hover { background: var(--primary-soft); }
+.btn-danger { background: #fff; color: var(--err); border: 1px solid var(--err); }
+.btn-danger:hover { background: #fef2f2; }
+
+.layout { flex: 1; max-width: 720px; width: 100%; margin: 0 auto; padding: 18px 16px 84px; overflow-y: auto; }
+.panel-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+.panel-head h2 { font-size: 18px; }
+.head-right { display: flex; align-items: center; gap: 10px; }
+.conn-badge { font-size: 12px; padding: 4px 12px; border-radius: 999px; background: #f0f0f0; color: var(--text-2); }
+.conn-badge.on { background: var(--primary-soft); color: var(--primary); }
+.sub { font-size: 12px; color: var(--text-3); margin: 4px 0 14px; }
+
+.node-list { display: flex; flex-direction: column; gap: 8px; }
+.node-item { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; }
+.node-item:hover { border-color: var(--primary); }
+.node-main { display: flex; align-items: center; gap: 10px; }
+.node-flag { width: 40px; height: 28px; border-radius: 6px; background: var(--primary-soft); color: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; }
+.node-info .n-country { font-size: 14px; font-weight: 600; }
+.node-info .n-meta { font-size: 11px; color: var(--text-3); margin-top: 2px; }
+.node-right { display: flex; align-items: center; gap: 10px; }
+.lat { font-size: 12px; color: var(--text-2); font-family: monospace; }
+.lat.fast { color: var(--primary); }
+.connect-btn { background: var(--primary); color: #fff; border: none; border-radius: 8px; padding: 7px 16px; font-size: 13px; font-weight: 600; }
+.connect-btn:hover { opacity: 0.88; }
+.connect-btn.connected { background: var(--err); }
+.empty { text-align: center; color: var(--text-3); padding: 30px 0; font-size: 13px; }
+
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; }
+.card h3 { font-size: 14px; margin-bottom: 8px; }
+.conn-detail { font-size: 13px; color: var(--text-2); line-height: 1.8; background: var(--bg); border-radius: 8px; padding: 10px 12px; margin-bottom: 10px; }
+.update-row { display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--text-2); }
+
+.footbar { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid var(--border); display: flex; max-width: 720px; margin: 0 auto; }
+.foot-btn { flex: 1; padding: 13px 0; background: none; border: none; font-size: 13px; color: var(--text-3); font-weight: 600; }
+.foot-btn.active { color: var(--primary); }
